@@ -1,3 +1,30 @@
+CREATE TABLE `paylevel` (
+  `PLEVEL` varchar(6) DEFAULT NULL,
+  `PAY` int(8) DEFAULT NULL,
+  `ALLOWANCE` int(8) DEFAULT NULL
+);
+
+INSERT INTO `paylevel` VALUES
+('P001',26000,12000),
+('P002',22000,10000),
+('P003',12000,6000);
+
+CREATE TABLE `worker` (
+  `ECODE` int(4) DEFAULT NULL,
+  `NAME` varchar(25) DEFAULT NULL,
+  `DESIG` varchar(15) DEFAULT NULL,
+  `PLEVEL` varchar(6) DEFAULT NULL,
+  `DOJ` date DEFAULT NULL,
+  `DOB` date DEFAULT NULL
+);
+
+INSERT INTO `worker` VALUES
+(11,'Radhe Shyam','Supervisor','P001','2004-09-13','1981-08-23'),
+(12,'Chander Nath','Operator','P003','2010-02-22','1987-07-12'),
+(13,'Fizza','Operator','P003','2009-01-14','1983-10-14'),
+(15,'Ameen Ahmed','Mechanic','P002','2006-08-21','1984-03-13'),
+(18,'Sanya','Clerk','P002','2005-12-19','1983-01-09');
+
 SELECT * FROM Worker ORDER BY DOB DESC;
 SELECT NAME, DESIG FROM Worker WHERE PLEVEL IN ('P001', 'P002');
 SELECT * FROM Worker WHERE DOB BETWEEN '1984-01-19' AND '1987-01-18';
